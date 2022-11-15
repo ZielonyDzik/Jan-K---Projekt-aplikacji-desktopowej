@@ -1,0 +1,4 @@
+Nazwa: Zielony Las
+Ikona: zielonydzik.ico
+
+Aplikacja będzie polegała na możliwości zapoznania się z informacjami na temat społeczności "Zielony Las". Na początku będą informacje, czym się zajmuje ta społeczność i na czym polega. Następnie będzie ukryty opis aplikacji. Po wciśnięciu przycisku "Wyświetl" zostanie wyświetlony opis aplikacji. Po prawej stronie [obok opisu aplikacji] będzie znajdowało się zdjęcie "las.jpg" Później będzie logowanie polegające na wejściu użytkownika. Użytkownik musi podać swoją nazwę, swoje id oraz poprawne hasło. Klikając przycisk "zaloguj się" zostanie zwrócona informacja o tym, czy logowanie się powiodło. Tło aplikacji będzie koloru ciemno-zielonego [#395814] a tekst jasny. Nagłówki oznaczone literą B w rysunku na zdjęciu "projekt.jpg" będą miały większe litery i inny styl czcionki. Nie będzie możliwości rozciągania okna. Na samym dole będzie znajdować się przycisk "Wyjdź", po którego wciśnięciu aplikacja zostanie zamknięta.
