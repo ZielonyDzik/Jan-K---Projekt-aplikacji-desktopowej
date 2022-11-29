@@ -1,1 +1,2 @@
-# Jan-K---Projekt-aplikacji-desktopowej
+# Projekt aplikacji desktopowej dotyczącej społeczności Zielony Las
+
