@@ -4,7 +4,7 @@ root = tk.Tk()
 
 root.geometry("1000x1000")
 root.title('Zielony Las')
-root.configure(bg='#395814')
+root.configure(bg='#00802b')
 root.iconbitmap('zielonydzik.ico')
 
 #==================================#
@@ -24,19 +24,101 @@ class BetterButton(tk.Button):
 
 class Button:
 
-    info1 = tk.Label(root, text="Zielony Las - Informacje", fg='white', bg='#395814', font=('none', 16, 'bold'))
+    info1 = tk.Label(root, text="Zielony Las - Informacje", fg='white', bg='#00802b', font=('none', 16, 'bold'))
     info1.grid(column=0, row=0)
-    info2 = tk.Label(root, text="Jest to społeczność, w której organizowane są różne wydarzenia zapewniające rozrywkę i dużo atrakcji.", fg='white', bg="#395814", font=('none', 12, 'normal'))
+    info2 = tk.Label(root, text="Jest to społeczność, w której organizowane są różne wydarzenia zapewniające rozrywkę i dużo atrakcji.", fg='white', bg="#00802b", font=('none', 12, 'normal'))
     info2.grid(column=0, row=1)
-    info2 = tk.Label(root, text=" ", fg='white', bg="#345210", font=('none', 12, 'normal'))
+    info2 = tk.Label(root, text=" ", fg='white', bg="#00802b", font=('none', 12, 'normal'))
     info2.grid(column=0, row=2)
 
-    wyswietl = BetterButton(root, text="Opis społeczności - Naciśnij lewym przyciskiem myszy aby wyświetlić.", bg="#395814", fg="white", width=100, height=10)
+    wyswietl = BetterButton(root, text="Opis społeczności - Naciśnij lewym przyciskiem myszy aby wyświetlić.", bg="#006622", fg="white", width=100, height=10)
     wyswietl.grid(column=0, row=3)
     
 
 #==================================#
 
+a = {"Iterb": "Abecadło28", "ZielonyDzik": "Dzik123", "HyPer": "hypoero"}
 
+
+class LogowanieRozszerzone(tk.Entry):
+    def __init__(self, master=None, tekst_zastepczy="podaj liczbe", color="grey"):
+        super().__init__(master, width=26)
+
+        self.tekst_zastepczy = tekst_zastepczy
+        self.tekst_zastepczy_color = color
+        self.default_fg_color = self['fg']
+
+        self.bind("<Key>", self.foc_in)
+
+        self.bind("<Leave>", self.foc_out)
+
+        self.put_tekst_zastepczy()
+
+    def put_tekst_zastepczy(self):
+        self.delete('0', 'end')
+        self.insert(0, self.tekst_zastepczy)
+        self['fg'] = self.tekst_zastepczy_color
+
+    def foc_in(self, *args):
+        if self['fg'] == self.tekst_zastepczy_color:
+            self.delete('0', 'end')
+            self['fg'] = self.default_fg_color
+
+    def foc_out(self, *args):
+        if not self.get():
+            self.put_tekst_zastepczy()
+
+
+
+class Logowanie:
+    def __init__(self, root):
+        self.tekst1 = tk.StringVar()
+        self.tekst2 = tk.StringVar()
+
+        self.label002 = tk.Label(root, text="              ", height=28, bg="#00802b")
+        self.label002.grid(row=4, column=0)
+
+        self.label001 = tk.Label(root,text="Logowanie", bg="#00802b", font=('none', 20, 'bold'))
+        self.label001.grid(row=5,column=0)
+
+        self.label01 = tk.Label(root, text="              ", bg="#00802b")
+        self.label01.grid(row=6, column=0)
+
+        self.label01 = tk.Label(root, text="              ", bg="#00802b")
+        self.label01.grid(row=8, column=0)
+
+        self.label01 = tk.Label(root, text="              ", bg="#00802b")
+        self.label01.grid(row=10, column=0)
+
+        self.label01 = tk.Label(root, text="              ", bg="#00802b")
+        self.label01.grid(row=12, column=0)
+
+        self.entry01 = LogowanieRozszerzone(root, tekst_zastepczy="Podaj nazwę użytkownika",)
+        self.entry01.grid(row=7, column=0)
+
+        self.entry02 = LogowanieRozszerzone(root, tekst_zastepczy="Podaj hasło użytkownika")
+        self.entry02.grid(row=9,column=0)
+
+        self.b1 = tk.Button(root, text="Zaloguj się", command=lambda: self.zmien_tekst(self.label01, self.entry01.get(), self.entry02.get()))
+        self.b1.grid(row=11, column=0)
+
+        self.label01 = tk.Label(root, text="Czekam na zalogowanie")
+        self.label01.grid(row=13, column=0)
+
+    def zmien_tekst(self, label, user, passwd):
+        if user in a:
+            pass
+            if passwd == a[user]:
+                label.config(text="Użytkownik zalogowany")
+            else:
+                label.config(text="Złe hasło")
+        else:
+            label.config(text="Użytkownik nie istnieje")
+
+login = Logowanie(root)
+#==================================#
+
+
+#================================#
 
 root.mainloop()
